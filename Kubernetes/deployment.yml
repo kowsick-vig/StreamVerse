@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: netflix-app
+  name: streamverse-app
   labels:
-    app: netflix-app
+    app: streamverse-app
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: netflix-app
+      app: streamverse-app
   template:
     metadata:
       labels:
-        app: netflix-app
+        app: streamverse-app
     spec:
       containers:
-      - name: netflix-app
-        image: nasi101/netflix:latest
+      - name: streamverse-app
+        image: induanoopsia/streamverse:latest
         ports:
         - containerPort: 80
