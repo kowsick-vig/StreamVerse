@@ -24,12 +24,12 @@ export default function Footer() {
           <Typography color="grey.700" variant="h6">
             Developed by{" "}
             <Link
-              href="https://github.com/crazy-man22"
+              href=""
               underline="none"
               sx={{ color: "text.primary" }}
               target="_blank"
             >
-              Crazy Man
+              Indu Anoop
             </Link>
           </Typography>
         </Divider>
