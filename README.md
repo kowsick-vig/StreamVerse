@@ -51,9 +51,4 @@ sudo usermod -aG docker $USER  # Replace with your system's username, e.g., 'ubu
 newgrp docker
 sudo chmod 777 /var/run/docker.sock
 
-##Build and run the application container:
-
-```bash
-docker build -t streamverse .
-docker run -d --name streamverse -p 8081:80 streamverse:latest
 
