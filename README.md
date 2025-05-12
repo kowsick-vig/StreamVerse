@@ -1,4 +1,37 @@
-##Build and run the application container:
+🚀 StreamVerse CI/CD Pipeline & Monitoring Setup
+
+This project demonstrates the end-to-end DevOps pipeline for deploying and securing a Dockerized web application (StreamVerse). The setup includes Dockerization, security scans, CI/CD automation, and container monitoring.
+
+📋 Project Overview
+
+This project automates the process of:
+
+Dockerizing the StreamVerse web app.
+Running security scans on the application using tools like SonarQube, Trivy, and OWASP Dependency Check.
+Setting up a CI/CD pipeline with Jenkins to automate the build, test, and deployment process.
+Monitoring the application with Prometheus and Grafana.
+🛠️ Prerequisites
+
+Before you begin, ensure that you have the following installed on your EC2 or local machine:
+
+Docker: For containerizing the application.
+Jenkins: For CI/CD automation.
+SonarQube: For static code analysis and quality gate.
+Trivy: For container vulnerability scanning.
+OWASP Dependency-Check: For dependency vulnerabilities.
+Prometheus: For monitoring container metrics.
+Grafana: For visualizing metrics from Prometheus.
+🚀 Setup Instructions
+
+1. Dockerization
+Set up Docker on your EC2 instance:
+
+sudo apt-get update
+sudo apt-get install docker.io -y
+sudo usermod -aG docker $USER  # Replace with your system's username, e.g., 'ubuntu'
+newgrp docker
+sudo chmod 777 /var/run/docker.sock
+Build and run the application container:
 
 docker build -t streamverse .
 docker run -d --name streamverse -p 8081:80 streamverse:latest
@@ -114,7 +147,7 @@ Add Prometheus Dashboards:
 
 Import pre-configured dashboards for Node Exporter (ID: 1860) and Jenkins (ID: 9964) for easy monitoring.
 
-Usage
+📢 Usage
 
 CI/CD Automation:
 Push your changes to the repository and Jenkins will automatically build and deploy the application.
@@ -123,15 +156,15 @@ Security:
 Every push triggers SonarQube and Trivy scans to ensure your code and containers are secure.
 Monitoring:
 View your application’s performance and metrics in Grafana by visualizing data from Prometheus.
-License
+📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Contributing
+📝 Contributing
 
 Feel free to fork this project, open issues, and submit pull requests. Contributions are welcome!
 
-Acknowledgments
+🙏 Acknowledgments
 
 Docker for containerizing the app.
 SonarQube, Trivy, and OWASP Dependency-Check for security scanning.
