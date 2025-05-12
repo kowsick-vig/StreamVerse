@@ -180,7 +180,7 @@ pipeline {
         }
         stage('Checkout from Git') {
             steps {
-                git branch: 'main', url: 'https://github.com/induanoopsia/StreamVerse.git'
+                git branch: 'main', url: 'https://github.com/kowsick-vig/StreamVerse.git'
             }
         }
         stage("Sonarqube Analysis") {
@@ -270,7 +270,7 @@ pipeline{
         }
         stage('Checkout from Git'){
             steps{
-                git branch: 'main', url: 'https://github.com/induanoopsia/StreamVerse.git'
+                git branch: 'main', url: 'https://github.com/kowsick-vig/StreamVerse.git'
             }
         }
         stage("Sonarqube Analysis "){
@@ -309,20 +309,20 @@ pipeline{
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
                        sh "docker build --build-arg TMDB_V3_API_KEY=<yourapikey> -t streamverse ."
-                       sh "docker tag streamverse induanoopsia/streamverse:latest "
-                       sh "docker push induanoopsia/streamverse:latest "
+                       sh "docker tag streamverse kowsick-vig/streamverse:latest "
+                       sh "docker push kowsick-vig/streamverse:latest "
                     }
                 }
             }
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image induanoopsia/streamverse:latest > trivyimage.txt" 
+                sh "trivy image kowsick-vig/streamverse:latest > trivyimage.txt" 
             }
         }
         stage('Deploy to container'){
             steps{
-                sh 'docker run -d --name streamverse -p 8081:80 induanoopsia/streamverse:latest'
+                sh 'docker run -d --name streamverse -p 8081:80 kowsick-vig/streamverse:latest'
             }
         }
     }
